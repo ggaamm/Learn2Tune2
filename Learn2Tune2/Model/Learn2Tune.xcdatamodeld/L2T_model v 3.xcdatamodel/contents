@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Label" representedClassName="Label" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="predictedLabel" optional="YES" attributeType="String"/>
+        <attribute name="taggedLabel" optional="YES" attributeType="String"/>
+        <relationship name="toPhoto" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="toLabels" inverseEntity="Photo"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="pin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="photos" inverseEntity="Pin"/>
+        <relationship name="toLabels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Label" inverseName="toPhoto" inverseEntity="Label"/>
+    </entity>
+    <entity name="Pin" representedClassName="Pin" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photo" inverseName="pin" inverseEntity="Photo"/>
+    </entity>
+    <elements>
+        <element name="Label" positionX="100.8125" positionY="-164.70703125" width="128" height="103"/>
+        <element name="Photo" positionX="-104.25" positionY="-164.43359375" width="128" height="118"/>
+        <element name="Pin" positionX="-279.17578125" positionY="-164.41015625" width="128" height="118"/>
+    </elements>
+</model>
