@@ -25,5 +25,5 @@ Core Data: For persistance of the images and labels
 UIKit: To be able to insert all the user interface elements
 
 #### Current Version
-Current version does not include the functionality of backing up local images to the icloud.
+Current version does not include the functionality of backing up local images to the cloud.
 
